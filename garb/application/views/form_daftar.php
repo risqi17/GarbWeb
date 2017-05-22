@@ -8,7 +8,7 @@
 	<h1>Silahkan isi data</h1>
 	
 <div id="body">
-<form action="<?php echo site_url('daftar/insert')?>" method="POST">
+<form action="<?php echo base_url('daftar/insert')?>" method="POST">
 
 		Username  : <input type="text" name="username" placeholder="username"><br><br>
 

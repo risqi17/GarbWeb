@@ -84,7 +84,7 @@
             </ul>
     	</div>
     </div>
-
+   
     <div class="main-panel">
         <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
@@ -118,44 +118,63 @@
         </nav>
 
 
-        <div class="content">
+    <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-10">
+                <div class="col-md-8">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Data Administrator</h4>
-                                <a href="<?php echo base_url(). 'admin/tambah'; ?>"><button type="submit" class="btn btn-primary btn-fill pull-right">Tambah</button></a>
-                                <p class="category">Anda dapat merubah data disini</p>
+                                <h4 class="title">Edit Admin</h4>
                             </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-hover table-striped">
-                                    <thead>
-                                        <th>Username</th>
-                                    	<th>Nama</th>
-                                    	<th>Email</th>
-                                    	<th>Password</th>
-                                    	<th>Action</th>
-                                    </thead>
-                                    <tbody>
-                                       <?php 
-										foreach ($administrator as $row){
-										?>
-                                        <tr>
-                                        	<td><?php echo $row->username; ?></td>
-                                        	<td><?php echo $row->nama_admin; ?></td>
-                                        	<td><?php echo $row->email; ?></td>
-                                        	<td><?php echo $row->password; ?></td>
-                                        	<td><a href="<?php echo base_url('admin/edit/')?><?php  echo $row->username; ?>"><button type="submit" class="btn btn-info btn-fill" name="edit">&nbsp;Edit</button></a>&nbsp;
-                                        	<a href="hapus/<?php  echo $row->username; ?>"><button type="submit" class="btn btn-danger btn-fill" name="edit">&nbsp;Hapus</button></a></td>
-                                        </tr>
-                                        <?php } ?>
-                                    </tbody>
-                                </table>
+                            <div class="content">
+                               <?php foreach ($administrator as $row) { ?>
+                                <form action="<?php echo base_url(). 'admin/update'; ?>" method="post">
+                                    
+                                       <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Username</label>
+                                                <input type="text" name="username" class="form-control" readonly value="<?php echo $row->username; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Nama</label>
+                                                <input type="text" class="form-control" name="nama" value="<?php echo $row->nama_admin; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input type="text" class="form-control" name="email" value="<?php echo $row->email; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Password</label>
+                                                <input type="text" class="form-control" name="password" value="<?php echo $row->password; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
+                    
+
                 </div>
             </div>
         </div>
@@ -198,21 +217,5 @@
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="http://localhost/garb/assets/js/demo.js"></script>
 
-	<script type="text/javascript">
-    	$(document).ready(function(){
-
-        	demo.initChartist();
-
-        	$.notify({
-            	icon: 'pe-7s-gift',
-            	message: "Selamat Datang Di Halaman Administrator</b> - Aplikasi Garb Jahit Online."
-
-            },{
-                type: 'info',
-                timer: 4000
-            });
-
-    	});
-	</script>
-
+	
 </html>
