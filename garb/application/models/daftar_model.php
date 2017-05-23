@@ -1,47 +1,24 @@
 <?php
 class daftar_model extends CI_Model{
-	/*function ambil_data(){
-		return $this->db->get('barang');
-	}*/
-	public $username;
-	public $nama_admin;
-	public $email;
-	public $password;
-	
-	public function __construct(){
-		parent::__construct();
-		$this->labels=$this->_attributeLabels();
-			$this->load->database();//fungsi untuk membuat database (library>
+	function tampil_data(){
+		return $this->db->get('administrator');
 	}
-	public function insert(){
-		$sql=sprintf("INSERT INTO administrator VALUES ('%s','%s','%s','%s')",
-				$this->username,
-				$this->nama_admin,
-				$this->email,
-				$this->password
-				);
-		$this->db->query($sql);
-		
+	function input_data($data,$table){
+		$this->db->insert($table,$data);
+	}
+ 
+	function hapus_data($where,$table){
+		$this->db->where($where);
+		$this->db->delete($table);
 	}
 	
-		/*function cek_daftar($table,$where){		
-		return $this->db->get_where($table,$where);
-	}*/	
-	
-
-	public function read(){
-		/*$sql="SELECT  * FROM barang ORDER BY kode";
-		$query=$this->db->query($sql);
-		return $query->result();*/
+	function edit_data($where,$table){		
+	return $this->db->get_where($table,$where);
 	}
 	
-	private function _attributeLabels(){
-		return [
-			'username'=>'Username: ',
-			'nama_admin'=>'Nama: ',
-			'email'=>'Email: ',
-			'password'=>'Password: '
-		];
+	function update_data($where,$data,$table){
+		$this->db->where($where);
+		$this->db->update($table,$data);
 	}
 	
 }
