@@ -51,32 +51,38 @@
             </div>
 
             <ul class="nav">
-                <li class="active">
-                    <a href="">
+                <li class="">
+                    <a href="<?php echo base_url('admin'); ?>">
                         <i class="pe-7s-graph"></i>
                         <p>Admin</p>
                     </a>
                 </li>
-                <li>
-                    <a href="">
+                                <li>
+                    <a href="<?php echo base_url('model'); ?>">
+                        <i class="pe-7s-display1"></i>
+                        <p>Model</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="<?php echo base_url('penjahit'); ?>">
                         <i class="pe-7s-user"></i>
                         <p>Penjahit</p>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="<?php echo base_url('User'); ?>">
                         <i class="pe-7s-note2"></i>
                         <p>Pelanggan</p>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="<?php echo base_url('Pemesanan'); ?>">
                         <i class="pe-7s-news-paper"></i>
                         <p>Pesanan</p>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="<?php echo base_url('Pembayaran'); ?>">
                         <i class="pe-7s-cash"></i>
                         <p>Pembayaran</p>
                     </a>
@@ -162,7 +168,7 @@
 														<button type="submit" class="btn btn-info btn-fill" name="edit">&nbsp;Aktifkan</button>&nbsp;
 													</form>
 													<?php	} ?>
-                                       			<a href="hapus/<?php  echo $row->id_pjh; ?>"><button type="submit" class="btn btn-danger btn-fill" name="hapus">&nbsp;Hapus</button></a>
+                                       			<a href="<?php echo base_url('penjahit/hapus')?>/<?php  echo $row->id_pjh; ?>"><button type="submit" class="btn btn-danger btn-fill" name="hapus">&nbsp;Hapus</button></a>
                                         	</td>
                                         </tr>
                                         <?php } ?>

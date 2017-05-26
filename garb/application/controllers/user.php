@@ -9,5 +9,10 @@ class User extends CI_Controller{
 		$data['user']=$this->m_user->read_user()->result();
 		$this->load->view('v_user',$data);
 	}
+	function hapus($id){
+		$where = array('id_user' => $id);
+		$this->m_user->hapus_data($where,'user');
+		redirect(base_url('user'));
+	}
 }
 ?>

@@ -7,12 +7,7 @@ class pembayaran extends CI_Controller{
 	}	
 	function index(){
 		$data['pembayaran']=$this->pembayaran_model->read_pembayaran()->result();
-		$this->load->view('pembayaran_view',$data);
+		$this->load->view('v_pembayaran',$data);
 	}
-	/*public function konfirmasi($kode_kon){
-		$this->model->id_pembayaran=$kode_kon;
-		$this->model->konfirmasi();
-		redirect('daftar');
-	}*/
 }
 ?>

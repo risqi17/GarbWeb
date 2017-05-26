@@ -51,13 +51,13 @@
             </div>
 
             <ul class="nav">
-                <li class="active">
+                <li class="">
                     <a href="<?php echo base_url('admin'); ?>">
                         <i class="pe-7s-graph"></i>
                         <p>Admin</p>
                     </a>
                 </li>
-                <li>
+                                <li>
                     <a href="<?php echo base_url('model'); ?>">
                         <i class="pe-7s-display1"></i>
                         <p>Model</p>
@@ -75,7 +75,7 @@
                         <p>Pelanggan</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="<?php echo base_url('Pemesanan'); ?>">
                         <i class="pe-7s-news-paper"></i>
                         <p>Pesanan</p>
@@ -90,7 +90,7 @@
             </ul>
     	</div>
     </div>
-   
+
     <div class="main-panel">
         <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
@@ -124,61 +124,52 @@
         </nav>
 
 
-    <div class="content">
+        <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                <div class="col-md-8">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Edit Admin</h4>
+                                <h4 class="title">Data Pesanan</h4>
+                                <p class="category">Anda dapat merubah data disini</p>
                             </div>
-                            <div class="content">
-                                <form action="<?php echo base_url(). 'admin/tambah_aksi'; ?>" method="post">
-                                    
-                                       <div class="row">
-                                        <div class="col-md-5">
-                                            <div class="form-group">
-                                                <label>Username</label>
-                                                <input type="text" name="username" class="form-control" value="">
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div class="content table-responsive table-full-width">
+                                <table class="table table-hover table-striped">
+                                    <thead>
+                                       <th>No</th>
+										<th>id pemesanan</th>
+										<th>id user</th>
+										<th>id penjahit</th>
+										<th>id model</th>
+										<th>keterangan</th>
+										<th>jumlah</th>
+										<th>estimasi waktu</th>
+										<th>total harga</th>
+                                    </thead>
+                                    <tbody>
+                                       <?php
+										$no = 1;
+										foreach($pemesanan as $p){
+											?>
+											<tr>
+												<td><?php echo $no++ ?></td>
+												<td><?php echo $p->id_pemesanan ?></td>
+												<td><?php echo $p->id_user ?></td>
+												<td><?php echo $p->id_pjh ?></td>
+												<td><?php echo $p->id_model ?></td>
+												<td><?php echo $p->keterangan ?></td>
+												<td><?php echo $p->jumlah ?></td>
+												<td><?php echo $p->estimasi_waktu ?></td>
+												<td><?php echo $p->total_harga ?></td>
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Nama</label>
-                                                <input type="text" class="form-control" name="nama" value="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Email</label>
-                                                <input type="text" class="form-control" name="email" value="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Password</label>
-                                                <input type="text" class="form-control" name="password" value="">
-                                            </div>
-                                        </div>
-                                    </div>
+											</tr>
+										<?php } ?>
+                                    </tbody>
+                                </table>
 
-                                    <button type="submit" class="btn btn-info btn-fill pull-right">Simpan</button>
-                                    <div class="clearfix"></div>
-                                </form>
                             </div>
                         </div>
                     </div>
-                    
-
                 </div>
             </div>
         </div>
@@ -221,6 +212,6 @@
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="http://localhost/garb/assets/js/demo.js"></script>
 
-	
 
 </html>
+	

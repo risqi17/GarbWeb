@@ -10,7 +10,7 @@ class pemesanan extends CI_Controller{
 	}	
 	function index(){
 		$data['pemesanan']=$this->pemesanan_model->read_pemesanan()->result();
-		$this->load->view('pemesanan_view',$data);
+		$this->load->view('v_pemesanan',$data);
 	}
 }
 ?>
