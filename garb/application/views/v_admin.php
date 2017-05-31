@@ -87,6 +87,12 @@
                         <p>Pembayaran</p>
                     </a>
                 </li>
+                <li>
+                    <a href="<?php echo base_url('Feedback'); ?>">
+                        <i class="pe-7s-repeat"></i>
+                        <p>Feedback</p>
+                    </a>
+                </li>
             </ul>
     	</div>
     </div>
@@ -108,7 +114,7 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                          <a href="">
+                          <a href="<?php echo base_url('admin/profil')?>">
                                <p>Hai, <?php echo $this->session->userdata("nama"); ?></p>
                            </a>
                         </li>
@@ -153,7 +159,7 @@
                                         	<td><?php echo $row->email; ?></td>
                                         	<td><?php echo $row->password; ?></td>
                                         	<td><a href="<?php echo base_url('admin/edit/')?><?php  echo $row->username; ?>"><button type="submit" class="btn btn-info btn-fill" name="edit">&nbsp;Edit</button></a>&nbsp;
-                                        	<a href="hapus/<?php  echo $row->username; ?>"><button type="submit" class="btn btn-danger btn-fill" name="edit">&nbsp;Hapus</button></a></td>
+                                        	<a href="<?php echo base_url('admin/hapus/')?><?php  echo $row->username; ?>"><button type="submit" class="btn btn-danger btn-fill" name="edit" onClick="return doconfirm();">&nbsp;Hapus</button></a></td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>
@@ -219,6 +225,16 @@
             });
 
     	});
+	</script>
+	<script>
+	function doconfirm()
+	{
+		job=confirm("Apakah Anda yakin ingin menghapus data ini?");
+		if(job!=true)
+		{
+			return false;
+		}
+	}
 	</script>
 
 </html>

@@ -87,6 +87,12 @@
                         <p>Pembayaran</p>
                     </a>
                 </li>
+                <li>
+                    <a href="<?php echo base_url('Feedback'); ?>">
+                        <i class="pe-7s-repeat"></i>
+                        <p>Feedback</p>
+                    </a>
+                </li>
             </ul>
     	</div>
     </div>
@@ -108,7 +114,7 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                          <a href="">
+                          <a href="<?php echo base_url('admin/profil')?>">
                                <p>Hai, <?php echo $this->session->userdata("nama"); ?></p>
                            </a>
                         </li>
@@ -130,7 +136,7 @@
                     <div class="col-md-9">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Data Pelanggan</h4>
+                                <h4 class="title">Data Pembayaran</h4>
                                 <p class="category">Anda dapat merubah data disini</p>
                             </div>
                             <div class="content table-responsive table-full-width">

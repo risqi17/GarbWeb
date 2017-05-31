@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -52,13 +51,13 @@
             </div>
 
             <ul class="nav">
-                <li class="">
+                <li class="active">
                     <a href="<?php echo base_url('admin'); ?>">
                         <i class="pe-7s-graph"></i>
                         <p>Admin</p>
                     </a>
                 </li>
-                                <li  class="active">
+                <li>
                     <a href="<?php echo base_url('model'); ?>">
                         <i class="pe-7s-display1"></i>
                         <p>Model</p>
@@ -115,7 +114,7 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                          <a href="<?php echo base_url('admin/profil')?>">
+                          <a href="<?php echo base_url('admin/profil'); ?>">
                                <p>Hai, <?php echo $this->session->userdata("nama"); ?></p>
                            </a>
                         </li>
@@ -131,54 +130,108 @@
         </nav>
 
 
+       
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-8">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Data Model Pakaian</h4>
-                                <a href="<?php echo base_url(). 'model/tambah'; ?>"><button type="submit" class="btn btn-primary btn-fill pull-right">Tambah</button></a>
-                                
-                                <a href="<?php echo base_url(). 'model/gallery'; ?>"><button type="submit" class="btn btn-info btn-fill pull-right">Gallery</button></a>
-                                <p class="category">Anda dapat merubah data disini</p>
+                                <h4 class="title">Edit Profile</h4>
                             </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-hover table-striped">
-                                    <thead>
-                                        <th>ID Model</th>
-										<th>Nama Model</th>
-										<th>Ukuran</th>
-										<th>Warna</th>
-										<th>Harga</th>
-										<th>Foto</th>
-                                   		<th>Action</th>
-                                    </thead>
-                                    <tbody>
-                                       <?php
-		foreach($model as $p){
-			?>
-			<tr>
-				<td><?php echo $p->id_model ?></td>
-				<td><?php echo $p->nama_model ?></td>
-				<td><?php echo $p->ukuran ?></td>
-				<td><?php echo $p->warna ?></td>
-				<td><?php echo $p->harga ?></td>
-				<td><img src="http://localhost/garb/assets/uploads/<?php echo $p->foto ?>" width="100px" height="60"></td>
-				<td><a href="<?php echo base_url('model/edit/')?><?php  echo $p->id_model; ?>"><button type="submit" class="btn btn-info btn-fill" name="edit">&nbsp;Edit</button></a>&nbsp;
-                                        	<a href="<?php echo base_url('model/hapus/')?><?php  echo $p->id_model; ?>"><button type="submit" class="btn btn-danger btn-fill" name="edit">&nbsp;Hapus</button></a></td>
-			</tr>
-		<?php } ?>
-                                    </tbody>
-                                </table>
+                            <div class="content">
+                               <?php foreach ($administrator as $p){ ?>
+                                <form method="post" action="<?php echo base_url(). 'admin/update_profil'; ?>" enctype="multipart/form-data">
+                                    
+                                       <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Username</label>
+                                                <input type="text" name="username" class="form-control" value="<?php echo $p->username; ?>" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Nama</label>
+                                                <input type="text" class="form-control" name="nama" placeholder="Company" value="<?php echo $p->nama_admin; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input type="text" class="form-control" name="email" placeholder="Company" value="<?php echo $p->email; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Password</label>
+                                                <input type="password" name="password" class="form-control" placeholder="Company" value="<?php echo $p->password; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Foto Profil</label>
+                                               <input type="hidden" name="foto_lama" value="<?php echo $p->foto; ?>">
+                                                <input type="file" class="form-control" name="foto" >
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                                
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-4">
+                        <div class="card card-user">
+                            <div class="image">
+                                <img src="http://localhost/garb/images/pic04.jpg" alt="..."/>
+                            </div>
+                            <div class="content">
+                                <div class="author">
+                                     <a href="#">
+                                    <img class="avatar border-gray" src="http://localhost/garb/images/<?php
+																		 if($p->foto == ''){
+																			 echo 'gg.png';
+																		 }else{
+																			 echo $p->foto;
+																		 }
+																		 ?>" alt="..."/>
+
+                                      <h4 class="title"><?php echo $p->nama_admin; ?><br />
+                                         <small><?php echo $p->email; ?></small>
+                                      </h4>
+                                    </a>
+                                </div>
+                                <p class="description text-center"> "Garb Application <br>
+                                                    Serving everyone with love <br>
+                                                    Always try to be better"
+                                </p>
+                            </div>
+                            <hr>
+                            <div class="text-center">
+                               
+					<?php } ?>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
-
 
         <footer class="footer">
             <div class="container-fluid">
@@ -217,8 +270,4 @@
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="http://localhost/garb/assets/js/demo.js"></script>
 
-
 </html>
-
-
-			

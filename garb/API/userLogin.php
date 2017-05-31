@@ -21,6 +21,7 @@
  if(isset($check)){
  //displaying success 
  echo "success";
+ 
  }else{
  //displaying failure
  echo "failure";

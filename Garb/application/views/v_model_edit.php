@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -52,13 +51,13 @@
             </div>
 
             <ul class="nav">
-                <li class="">
+                <li>
                     <a href="<?php echo base_url('admin'); ?>">
                         <i class="pe-7s-graph"></i>
                         <p>Admin</p>
                     </a>
                 </li>
-                                <li  class="active">
+                <li class="active">
                     <a href="<?php echo base_url('model'); ?>">
                         <i class="pe-7s-display1"></i>
                         <p>Model</p>
@@ -115,7 +114,7 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                          <a href="<?php echo base_url('admin/profil')?>">
+                          <a href="<?php echo base_url('admin/profil'); ?>">
                                <p>Hai, <?php echo $this->session->userdata("nama"); ?></p>
                            </a>
                         </li>
@@ -131,54 +130,91 @@
         </nav>
 
 
+       
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-8">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Data Model Pakaian</h4>
-                                <a href="<?php echo base_url(). 'model/tambah'; ?>"><button type="submit" class="btn btn-primary btn-fill pull-right">Tambah</button></a>
-                                
-                                <a href="<?php echo base_url(). 'model/gallery'; ?>"><button type="submit" class="btn btn-info btn-fill pull-right">Gallery</button></a>
-                                <p class="category">Anda dapat merubah data disini</p>
+                                <h4 class="title">Tambah Model</h4>
                             </div>
-                            <div class="content table-responsive table-full-width">
-                                <table class="table table-hover table-striped">
-                                    <thead>
-                                        <th>ID Model</th>
-										<th>Nama Model</th>
-										<th>Ukuran</th>
-										<th>Warna</th>
-										<th>Harga</th>
-										<th>Foto</th>
-                                   		<th>Action</th>
-                                    </thead>
-                                    <tbody>
-                                       <?php
-		foreach($model as $p){
-			?>
-			<tr>
-				<td><?php echo $p->id_model ?></td>
-				<td><?php echo $p->nama_model ?></td>
-				<td><?php echo $p->ukuran ?></td>
-				<td><?php echo $p->warna ?></td>
-				<td><?php echo $p->harga ?></td>
-				<td><img src="http://localhost/garb/assets/uploads/<?php echo $p->foto ?>" width="100px" height="60"></td>
-				<td><a href="<?php echo base_url('model/edit/')?><?php  echo $p->id_model; ?>"><button type="submit" class="btn btn-info btn-fill" name="edit">&nbsp;Edit</button></a>&nbsp;
-                                        	<a href="<?php echo base_url('model/hapus/')?><?php  echo $p->id_model; ?>"><button type="submit" class="btn btn-danger btn-fill" name="edit">&nbsp;Hapus</button></a></td>
-			</tr>
-		<?php } ?>
-                                    </tbody>
-                                </table>
+                            <div class="content">
+                               <?php foreach($model as $m){ ?>
+                                <form method="post" action="<?php echo base_url(). 'model/aksi_update'; ?>" enctype="multipart/form-data">
+                                    
+                                       <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>ID Model</label>
+                                                <input type="text" name="id" class="form-control" value="<?php echo $m->id_model; ?>" readonly >
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Nama Model</label>
+                                                <input type="text" name="nama" class="form-control" value="<?php echo $m->nama_model; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Ukuran</label>
+                 								<input type="text" name="ukuran" class="form-control" value="<?php echo $m->ukuran; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Warna</label>
+                                                <input type="text" class="form-control" name="warna" value="<?php echo $m->warna; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                       <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Harga</label>
+                                                <input type="text" class="form-control" name="harga" value="<?php echo $m->harga; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <img width="200" height="100" src="http://localhost/garb/assets/uploads/<?php echo $m->foto; ?>">
+                                                <input type="text" class="form-control" name="foto_lama" value="<?php echo $m->foto; ?>" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Update Foto</label>
+                                                <input type="file" class="form-control" name="foto">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-info btn-fill pull-right">Update</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
+                   
                 </div>
             </div>
         </div>
-
 
         <footer class="footer">
             <div class="container-fluid">
@@ -219,6 +255,3 @@
 
 
 </html>
-
-
-			

@@ -31,7 +31,24 @@ class Login extends CI_Controller{
 			redirect(base_url("admin"));
  
 		}else{
-			echo "Username dan password salah !";
+			$this->session->set_flashdata("pesan", "<script type='text/javascript'>
+    	$(document).ready(function(){
+
+        	demo.initChartist();
+
+        	$.notify({
+            	icon: 'pe-7s-gift',
+            	message: 'Periksa Username Dan Password Anda Lagi</b> - Aplikasi Garb Jahit Online.'
+
+            },{
+                type: 'danger',
+                timer: 4000
+            });
+
+    	});
+	</script>
+");
+			redirect('login'); 
 		}
 	}
  

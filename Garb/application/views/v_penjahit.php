@@ -87,6 +87,12 @@
                         <p>Pembayaran</p>
                     </a>
                 </li>
+                <li>
+                    <a href="<?php echo base_url('Feedback'); ?>">
+                        <i class="pe-7s-repeat"></i>
+                        <p>Feedback</p>
+                    </a>
+                </li>
             </ul>
     	</div>
     </div>
@@ -108,7 +114,7 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                          <a href="">
+                          <a href="<?php echo base_url('admin/profil')?>">
                                <p>Hai, <?php echo $this->session->userdata("nama"); ?></p>
                            </a>
                         </li>
@@ -168,7 +174,7 @@
 														<button type="submit" class="btn btn-info btn-fill" name="edit">&nbsp;Aktifkan</button>&nbsp;
 													</form>
 													<?php	} ?>
-                                       			<a href="<?php echo base_url('penjahit/hapus')?>/<?php  echo $row->id_pjh; ?>"><button type="submit" class="btn btn-danger btn-fill" name="hapus">&nbsp;Hapus</button></a>
+                                       			<a href="<?php echo base_url('penjahit/hapus')?>/<?php  echo $row->id_pjh; ?>"><button type="submit" class="btn btn-danger btn-fill" name="hapus" onClick="return doconfirm();">&nbsp;Hapus</button></a>
                                         	</td>
                                         </tr>
                                         <?php } ?>
@@ -219,6 +225,15 @@
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="http://localhost/garb/assets/js/demo.js"></script>
-
+	<script>
+	function doconfirm()
+	{
+		job=confirm("Apakah Anda yakin ingin menghapus data ini?");
+		if(job!=true)
+		{
+			return false;
+		}
+	}
+	</script>
 
 </html>

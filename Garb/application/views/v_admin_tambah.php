@@ -87,6 +87,12 @@
                         <p>Pembayaran</p>
                     </a>
                 </li>
+                <li>
+                    <a href="<?php echo base_url('Feedback'); ?>">
+                        <i class="pe-7s-repeat"></i>
+                        <p>Feedback</p>
+                    </a>
+                </li>
             </ul>
     	</div>
     </div>
@@ -108,7 +114,7 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                          <a href="">
+                          <a href="<?php echo base_url('admin/profil')?>">
                                <p>Hai, <?php echo $this->session->userdata("nama"); ?></p>
                            </a>
                         </li>
@@ -166,7 +172,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Password</label>
-                                                <input type="text" class="form-control" name="password" value="">
+                                                <input type="password" class="form-control" name="password" value="">
                                             </div>
                                         </div>
                                     </div>

@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -58,7 +57,7 @@
                         <p>Admin</p>
                     </a>
                 </li>
-                                <li  class="active">
+                                <li>
                     <a href="<?php echo base_url('model'); ?>">
                         <i class="pe-7s-display1"></i>
                         <p>Model</p>
@@ -88,7 +87,7 @@
                         <p>Pembayaran</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="<?php echo base_url('Feedback'); ?>">
                         <i class="pe-7s-repeat"></i>
                         <p>Feedback</p>
@@ -134,39 +133,25 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Data Model Pakaian</h4>
-                                <a href="<?php echo base_url(). 'model/tambah'; ?>"><button type="submit" class="btn btn-primary btn-fill pull-right">Tambah</button></a>
-                                
-                                <a href="<?php echo base_url(). 'model/gallery'; ?>"><button type="submit" class="btn btn-info btn-fill pull-right">Gallery</button></a>
-                                <p class="category">Anda dapat merubah data disini</p>
+                                <h4 class="title">Feedback</h4>
+                                <p class="category">Learning to everyone</p>
                             </div>
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover table-striped">
                                     <thead>
-                                        <th>ID Model</th>
-										<th>Nama Model</th>
-										<th>Ukuran</th>
-										<th>Warna</th>
-										<th>Harga</th>
-										<th>Foto</th>
-                                   		<th>Action</th>
+                                        <th>ID</th>
+										<th>Isi Feedback</th>
                                     </thead>
                                     <tbody>
                                        <?php
-		foreach($model as $p){
+		foreach($saran as $p){
 			?>
 			<tr>
-				<td><?php echo $p->id_model ?></td>
-				<td><?php echo $p->nama_model ?></td>
-				<td><?php echo $p->ukuran ?></td>
-				<td><?php echo $p->warna ?></td>
-				<td><?php echo $p->harga ?></td>
-				<td><img src="http://localhost/garb/assets/uploads/<?php echo $p->foto ?>" width="100px" height="60"></td>
-				<td><a href="<?php echo base_url('model/edit/')?><?php  echo $p->id_model; ?>"><button type="submit" class="btn btn-info btn-fill" name="edit">&nbsp;Edit</button></a>&nbsp;
-                                        	<a href="<?php echo base_url('model/hapus/')?><?php  echo $p->id_model; ?>"><button type="submit" class="btn btn-danger btn-fill" name="edit">&nbsp;Hapus</button></a></td>
+				<td><?php echo $p->pemberi ?></td>
+				<td><?php echo $p->isi ?></td>
 			</tr>
 		<?php } ?>
                                     </tbody>
@@ -219,6 +204,3 @@
 
 
 </html>
-
-
-			
