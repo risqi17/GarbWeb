@@ -53,7 +53,7 @@
                 <br />
 
                 <div>
-                  <h1><font color="#6fcb44">Garb  (Jahit-Online)</font></h1>
+                  <h1><font color="#395e5c">Garb  (Jahit-Online)</font></h1>
                   <p>Garb By Yeye-Team</p>
                   <p>©2017 All Rights Reserved</p>
                 </div>

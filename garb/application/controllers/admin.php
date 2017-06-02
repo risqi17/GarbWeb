@@ -100,7 +100,6 @@ class Admin extends CI_Controller{
                   
 					'nama_admin' =>$this->input->post('nama'),
 					'email' =>$this->input->post('email'),
-					'password' => MD5($this->input->post('password')),
 					'foto' =>$gbr['file_name']
                    
                 );
@@ -120,7 +119,6 @@ class Admin extends CI_Controller{
 			$data = array(
                   'nama_admin' =>$this->input->post('nama'),
 					'email' =>$this->input->post('email'),
-					'password' => MD5($this->input->post('password')),
 					'foto' => $lama
                    
                 );

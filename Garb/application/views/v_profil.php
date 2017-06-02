@@ -34,11 +34,11 @@
 <body>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="blue" data-image="assets/img/sidebar-5.jpg">
 
     <!--
 
-        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | blue"
         Tip 2: you can also add an image using data-image tag
 
     -->
@@ -170,14 +170,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Password</label>
-                                                <input type="password" name="password" class="form-control" placeholder="Company" value="<?php echo $p->password; ?>">
-                                            </div>
-                                        </div>
-                                    </div>
+                                   
                                      <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">

@@ -34,11 +34,11 @@
 <body>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="blue" data-image="assets/img/sidebar-5.jpg">
 
     <!--
 
-        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | blue"
         Tip 2: you can also add an image using data-image tag
 
     -->
@@ -136,7 +136,7 @@
                 <div class="col-md-8">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Edit Admin</h4>
+                                <h4 class="title">Tambah Admin</h4>
                             </div>
                             <div class="content">
                                 <form action="<?php echo base_url(). 'admin/tambah_aksi'; ?>" method="post">
